@@ -1,0 +1,16 @@
+print ("Enter the number of discs: ");
+String str = System.console().readLine();
+long i = Integer.parseInt(str);
+
+println (hanoi (i));
+println (Long.MAX_VALUE);
+
+long hanoi (long n) {
+	if (n < 2) {
+		return 1;
+	}
+	else {
+		n = 1 + (2 * (hanoi (n - 1)));
+	}
+	return n;
+}

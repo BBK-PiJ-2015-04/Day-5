@@ -6,7 +6,7 @@ buggyMethod (i);
 
 String buggyMethod (int n) {
 	if (n == 0) {
-		return;
+		return "";
 	}
-	return " " + buggyMethod (n - 2);
+	return (n + " " + buggyMethod (n - 2));
 }
