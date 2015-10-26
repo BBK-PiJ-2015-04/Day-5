@@ -1,0 +1,24 @@
+print ("Enter a number: ");
+String str = System.console().readLine();
+long i = Integer.parseInt(str);
+
+println (factorial (i));
+println (factorialIter (i));
+
+long factorial (long n) {
+	if (n < 2) {
+		return 1;
+	}
+	else {
+		n = n * factorial(n - 1);
+	}
+	return n;
+}
+
+long factorialIter (long n) {
+	long answer = 1;
+	for (int i = 1; i < n; i++) {
+		answer = answer * (i + 1);
+	}
+	return answer;
+}

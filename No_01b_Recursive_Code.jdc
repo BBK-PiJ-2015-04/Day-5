@@ -1,0 +1,12 @@
+print ("Enter a number: ");
+String str = System.console().readLine();
+int i = Integer.parseInt(str);
+
+buggyMethod (i);
+
+String buggyMethod (int n) {
+	if (n == 0) {
+		return;
+	}
+	return " " + buggyMethod (n - 2);
+}
