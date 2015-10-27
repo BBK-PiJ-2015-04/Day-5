@@ -1,13 +1,29 @@
+/*
+
+Write a small program with a method that calculates
+the nth element of the Fibonacci sequence as seen
+in the notes.
+
+Is it easy to do this both iteratively and recursively?
+Try both ways and see which is more natural for you. If
+one takes too long, try the other way.
+
+*/
+
+
+
 /*print ("Enter a number: ");
 String str = System.console().readLine();
 long i = Integer.parseInt(str);
 */
 
-for (int i = 1; i < 20; i++) {
+for (int i = 1; i < 15; i++) {
 println (fibonacci (i));
 }
 
-for (int i = 1; i < 20; i++) {
+println ();
+
+for (int i = 1; i < 15; i++) {
 
 println (fibonacciIter (i));
 }
@@ -31,6 +47,9 @@ long fibonacciIter (long n) {
 	else {
 		long answer = 1;
 		for (int i = 3; i < n; i++) {
+			for (int j = i - 1; )
+		
+		
 			answer = answer + (i - 1) + (i - 2);
 		}
 	return answer;

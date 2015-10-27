@@ -1,3 +1,26 @@
+/*
+
+Do you see anything wrong with the following
+code? How would you fix it?
+
+String buggyMethod(int n) {
+	if (n == 0) {
+		return "";
+	}
+	return n + " " + buggyMethod(n - 2);
+}
+
+MY ANSWER:
+
+If a number is entered that either odd or negative
+then the loop is executed forever and the program
+hangs.
+
+One way to fix it would be to chage the condition
+from "n == 0" to "n <= 0".
+
+*/
+
 print ("Enter a number: ");
 String str = System.console().readLine();
 int i = Integer.parseInt(str);

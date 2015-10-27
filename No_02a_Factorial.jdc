@@ -1,9 +1,22 @@
+/*
+
+Write a small program with a method that calculates
+the factorial of an integer number as seen in the
+notes.
+
+Is it easy to do this both iteratively and recursively?
+Try both ways and see which is more natural for you. If
+one takes too long, try the other way.
+
+*/
+
+println (); // Blank line to tidy the screen a bit.
 print ("Enter a number: ");
 String str = System.console().readLine();
 long i = Integer.parseInt(str);
 
-println (factorial (i));
-println (factorialIter (i));
+println ("The factorial calculated recursively is " + factorial (i));
+println ("The factorial calculated iteratively is " + factorialIter (i));
 
 long factorial (long n) {
 	if (n < 2) {
