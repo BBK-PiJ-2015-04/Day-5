@@ -10,23 +10,13 @@ one takes too long, try the other way.
 
 */
 
-
-
-/*print ("Enter a number: ");
+println ();
+print ("Enter a number: ");
 String str = System.console().readLine();
 long i = Integer.parseInt(str);
-*/
 
-for (int i = 1; i < 15; i++) {
-println (fibonacci (i));
-}
-
-println ();
-
-for (int i = 1; i < 15; i++) {
-
-println (fibonacciIter (i));
-}
+println ("The Fibonacci calculated recursively is " + fibonacci(i));
+println ("The Fibonacci calculated iteratively is " + fibonacciIter(i));
 
 long fibonacci (long n) {
 	if (n < 3) {
@@ -38,20 +28,20 @@ long fibonacci (long n) {
 	return n;
 }
 
-// BELOW IS NOT WORKING - WITHOUT RECURSION IT IS A PAIN!
-
 long fibonacciIter (long n) {
 	if (n < 3) {
 		return 1;
 	}
 	else {
-		long answer = 1;
-		for (int i = 3; i < n; i++) {
-			for (int j = i - 1; )
-		
-		
-			answer = answer + (i - 1) + (i - 2);
+		long fib = 0;
+		long fib_1 = 1;
+		long fib_2 = 0;
+		for (int i = 3; i <= (n + 1); i++) {
+			fib = fib_1 + fib_2;
+			fib_2 = fib_1;
+			fib_1 = fib;
+			
 		}
-	return answer;
+	return fib;
 	}
 }
