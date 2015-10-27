@@ -12,11 +12,11 @@ String buggyMethod(int n) {
 
 MY ANSWER:
 
-If a number is entered that either odd or negative
+If a number entered is either odd or is negative
 then the loop is executed forever and the program
 hangs.
 
-One way to fix it would be to chage the condition
+One way to fix it would be to change the condition
 from "n == 0" to "n <= 0".
 
 */

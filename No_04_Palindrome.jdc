@@ -1,0 +1,15 @@
+/*
+
+Create a program with a (recursive) method that takes
+a String parameter and returns true if the String is a
+palindrome and false otherwise. Compare this recursive
+version with the iterative version you wrote in
+past weeks. Which one seems clearer to you?
+
+*/
+
+boolean palindrome (String str) {
+	
+
+
+}
