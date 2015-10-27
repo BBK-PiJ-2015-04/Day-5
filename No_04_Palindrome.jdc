@@ -8,8 +8,32 @@ past weeks. Which one seems clearer to you?
 
 */
 
+println ();
+print ("Please enter the word to test for \"Palindromeiness\": ");
+String wordToTest = System.console().readLine();
+
+if (palindrome(wordToTest)) {
+	println ("Yes! The word \"" + wordToTest + "\" is indeed a Pailndrome! Well done!");
+}
+
+else {
+	println ("Sorry but \"" + wordToTest + "\" isn't quite a Pailndrome. Nice try though!");
+}
+
 boolean palindrome (String str) {
-	
-
-
+	int strLength = str.length();
+		if (strLength <= 1) {
+			return true;
+		}
+		else if (str.charAt (0) != str.charAt (strLength - 1)) {
+			return false;
+		}
+		else {
+			if (palindrome(str.substring(1, strLength - 1)) == true) {
+			return true;
+		}
+	}
+	return false; /* This line is meaningless. True or false makes no difference!
+				     The method never reaches this line. However unless there is
+					 a return statement, it will simply not compile! */
 }
