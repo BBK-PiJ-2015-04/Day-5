@@ -1,0 +1,40 @@
+/*
+
+Create a class with a method "pow" that takes
+two integers (base and exponent) and calculates
+the power, e.g. pow(2,3) calculates 2 ^ 3.
+
+Is it easy to do this both iteratively and recursively?
+
+*/
+
+println ();
+print ("Enter the base : ");
+String userInput = System.console().readLine();
+long base = Integer.parseInt(userInput);
+print ("Enter the exponent : ");
+userInput = System.console().readLine();
+long exponent = Integer.parseInt(userInput);
+
+println (base + " to the power " + exponent + " calculated...");
+println (" ...recursively is " + pow (base, exponent));
+println (" ...iteratively is " + powIter (base, exponent));
+
+long pow (long base, long exponent) {
+	if (exponent == 0) {
+		return 1;
+	}
+	long result = base * pow (base, exponent - 1);
+	return result;
+}
+
+long powIter (long base, long exponent) {
+	if (exponent == 0) { // anything to the power of zero is 1!
+		return 1;
+	}
+	long result = base;
+	for (int i = 1; i < exponent; i++) {
+		result = result * base;
+	}
+	return result;
+}
