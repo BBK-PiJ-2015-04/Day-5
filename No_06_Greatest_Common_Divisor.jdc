@@ -35,6 +35,7 @@ userInput = System.console().readLine();
 int number2 = Integer.parseInt(userInput);
 
 println ("The greatest common divisor of " + number1 + " and " + number2 + " is " + gcd (number1, number2));
+println ("Have a nice day!");
 
 int gcd (int number1, int number2) {
 	if (number1 % number2 == 0) {
