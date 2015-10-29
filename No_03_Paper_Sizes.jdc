@@ -1,0 +1,88 @@
+/*
+
+A Din-A0 sheet of paper is 841mm × 1189mm (its surface is
+one square meter). Successive measurements of paper are
+defined recursively as “half” or “double” the preceding
+size. Therefore, a Din-A1 sheet of paper is half of Din-A0,
+or 594mm × 841mm; while a Din-A00 is double of Din-A0, or
+1189mm× 1682mm.
+
+Create a method that takes a String parameter representing
+a size (e.g. “A4”, “A00000”) and prints on screen the size
+of the corresponding sheet of paper. For simplicity, you
+can ignore rounding errors when calculating smaller sizes.
+
+Hint: note that two consecutive sizes always share one side
+and only the other one is multiplied or divided by two,
+e.g. the short side of Din-A2 is as long as the long side
+of Din-A3, while the long side of Din-A2 is twice as long
+as the short side of Din-A3.
+
+*/
+
+// UNDER CONSTRUCTION
+
+String aSize = " ";
+
+while (!(inputValid(aSize))) {
+	println ();
+	print ("Enter the paper size number like 'A4': ");
+	aSize = System.console().readLine();
+}
+
+
+
+
+
+println ("The measurements are:");
+println (" Width: " + 5);
+println (" Height: " + 10);
+println ("Have a nice day!");
+
+// The method below checks that the string has a valid paper
+// size. So the first letter must be A and then the rest must
+// be numbers.
+
+boolean inputValid (String str) {
+
+	// Let's check that it is at least two letters long
+
+	if (str.length() < 2) {
+		return false;
+	}
+
+	// Now we check that the first letter is 'A'
+
+	else if (str.charAt(0) != 'A') {
+		return false;
+	}
+
+	// Finally we check to see all the remaining letters are numbers
+
+	else {
+		for (int i = 1; i < str.length(); i++) {
+			if (str.charAt(i) < 48 || str.charAt(i) > 57) {
+				return false;
+			}
+			else {
+				if (str.charAt(i -1 ) == '0' && str.charAt(i) != '0') {
+				return false;
+				}
+			}
+		}
+		return true;
+	}
+}
+
+// The method below will return true or false if the paper is
+// bigger or smaller than our reference size of A0.
+
+/*
+
+boolean bigger (String str) {
+	
+	if (str.charAt())
+
+}
+
+*/
