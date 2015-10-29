@@ -20,8 +20,6 @@ as the short side of Din-A3.
 
 */
 
-// UNDER CONSTRUCTION
-
 String aSize = " ";
 
 while (!(inputValid(aSize))) {
@@ -30,15 +28,13 @@ while (!(inputValid(aSize))) {
 	aSize = System.console().readLine();
 }
 
+if (bigger(aSize)) {
+	biggerPaper(timesBigger(aSize));
+}
 
-
-
-println (bigger(aSize));
-println (timesSmaller(aSize));
-println ("The measurements are:");
-println (" Width: " + 5);
-println (" Height: " + 10);
-println ("Have a nice day!");
+else {
+	smallerPaper(timesSmaller(aSize));
+}
 
 // The method below checks that the string has a valid paper
 // size. So the first letter must be A and then the rest must
@@ -67,7 +63,7 @@ boolean inputValid (String str) {
 			}
 			else {
 				// If it starts with A0 then it can only be followed by 0's
-				if (str.charAt(i - 1) == '0' && str.charAt(i) != '0') {
+				if (str.charAt(1) == '0' && str.charAt(i) != '0') {
 				return false;
 				}
 			}
@@ -82,7 +78,7 @@ boolean inputValid (String str) {
 
 boolean bigger (String str) {
 	if (str.length() > 2) {
-		if (str.charAt(2) == '0') {
+		if (str.charAt(1) == '0' && str.charAt(2) == '0') {
 		return true;
 		}
 	}
@@ -95,11 +91,38 @@ int timesBigger (String str) {
 	return str.length() - 1;
 }
 
-// the method below calculates how many times smaller than A0 it is.
+// The method below calculates how many times smaller than A0 it is.
 
 int timesSmaller (String str) {
 	String num = str.substring(1, str.length());
-	println (num);
 	int number = Integer.parseInt(num);
 	return number;
+}
+
+// The method below calculates the paper size for bigger
+// than A0 sizes.
+
+void biggerPaper (int n) {
+	double width = 841;
+	double height = 1189;
+	for (int i = 1; i < n; i++) {
+		width = width * Math.sqrt(2);
+		height = height * Math.sqrt(2);
+	}
+		println ("The width of the paper is " + width);
+		println ("The height of the paper is " + height);
+}
+
+// The method below calculates the paper size for smaller
+// than A0 sizes.
+
+void smallerPaper (int n) {
+	double width = 841;
+	double height = 1189;
+	for (int i = 0; i < n; i++) {
+		width = width / Math.sqrt(2);
+		height = height / Math.sqrt(2);
+	}
+		println ("The width of the paper is " + width);
+		println ("The height of the paper is " + height);
 }
