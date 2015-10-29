@@ -33,7 +33,8 @@ while (!(inputValid(aSize))) {
 
 
 
-
+println (bigger(aSize));
+println (timesSmaller(aSize));
 println ("The measurements are:");
 println (" Width: " + 5);
 println (" Height: " + 10);
@@ -65,7 +66,8 @@ boolean inputValid (String str) {
 				return false;
 			}
 			else {
-				if (str.charAt(i -1 ) == '0' && str.charAt(i) != '0') {
+				// If it starts with A0 then it can only be followed by 0's
+				if (str.charAt(i - 1) == '0' && str.charAt(i) != '0') {
 				return false;
 				}
 			}
@@ -77,12 +79,27 @@ boolean inputValid (String str) {
 // The method below will return true or false if the paper is
 // bigger or smaller than our reference size of A0.
 
-/*
 
 boolean bigger (String str) {
-	
-	if (str.charAt())
-
+	if (str.length() > 2) {
+		if (str.charAt(2) == '0') {
+		return true;
+		}
+	}
+	return false;
 }
 
-*/
+// The method below calculates how many times bigger than A0 it is.
+
+int timesBigger (String str) {
+	return str.length() - 1;
+}
+
+// the method below calculates how many times smaller than A0 it is.
+
+int timesSmaller (String str) {
+	String num = str.substring(1, str.length());
+	println (num);
+	int number = Integer.parseInt(num);
+	return number;
+}
