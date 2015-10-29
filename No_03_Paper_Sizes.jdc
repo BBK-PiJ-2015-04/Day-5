@@ -28,12 +28,17 @@ while (!(inputValid(aSize))) {
 	aSize = System.console().readLine();
 }
 
+// Our base size is A0 of 841 x 1189
+
+double width = 841;
+double height = 1189;
+
 if (bigger(aSize)) {
-	biggerPaper(timesBigger(aSize));
+	biggerPaper(timesBigger(aSize), width, height);
 }
 
 else {
-	smallerPaper(timesSmaller(aSize));
+	smallerPaper(timesSmaller(aSize), width, height);
 }
 
 // The method below checks that the string has a valid paper
@@ -102,27 +107,29 @@ int timesSmaller (String str) {
 // The method below calculates the paper size for bigger
 // than A0 sizes.
 
-void biggerPaper (int n) {
-	double width = 841;
-	double height = 1189;
-	for (int i = 1; i < n; i++) {
-		width = width * Math.sqrt(2);
-		height = height * Math.sqrt(2);
-	}
+void biggerPaper (int n, double width, double height) {
+	if (n < 2) {
 		println ("The width of the paper is " + width);
 		println ("The height of the paper is " + height);
+	}
+	else {
+		width = width * Math.sqrt(2);
+		height = height * Math.sqrt(2);
+		biggerPaper (n - 1, width, height);
+	}
 }
 
 // The method below calculates the paper size for smaller
 // than A0 sizes.
 
-void smallerPaper (int n) {
-	double width = 841;
-	double height = 1189;
-	for (int i = 0; i < n; i++) {
-		width = width / Math.sqrt(2);
-		height = height / Math.sqrt(2);
-	}
+void smallerPaper (int n, double width, double height) {
+	if (n < 1) {
 		println ("The width of the paper is " + width);
 		println ("The height of the paper is " + height);
+	}
+	else {
+		width = width / Math.sqrt(2);
+		height = height / Math.sqrt(2);
+		smallerPaper (n - 1, width, height);
+	}
 }
